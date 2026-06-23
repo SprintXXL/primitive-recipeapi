@@ -1,6 +1,8 @@
 package com.SprintXXL.primitiverecipeapi.factory;
 
+import com.SprintXXL.primitiverecipeapi.factory.data.BasicFactoryData;
 import com.SprintXXL.primitiverecipeapi.factory.data.FactoryRecipeData;
+import net.minecraft.item.ItemStack;
 
 public class FactoryRecipe {
 
@@ -28,5 +30,26 @@ public class FactoryRecipe {
 
     public FactoryRecipeData getData() {
         return data;
+    }
+
+    public BasicFactoryData getBasicFactoryData() {
+        return (BasicFactoryData) data;
+    }
+
+    public boolean matches(ItemStack inputStack) {
+
+        if (!(data instanceof BasicFactoryData)) {
+            return false;
+        }
+
+        return ((BasicFactoryData) data).matches(inputStack);
+    }
+
+    public int getDurationTicks() {
+        if (data instanceof BasicFactoryData) {
+            return ((BasicFactoryData) data).getDuration() * 20;
+        }
+
+        return 0;
     }
 }

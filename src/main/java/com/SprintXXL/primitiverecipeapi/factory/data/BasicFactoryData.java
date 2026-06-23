@@ -1,6 +1,7 @@
 package com.SprintXXL.primitiverecipeapi.factory.data;
 
 import com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient;
+import net.minecraft.item.ItemStack;
 
 public class BasicFactoryData implements FactoryRecipeData {
 
@@ -28,5 +29,14 @@ public class BasicFactoryData implements FactoryRecipeData {
 
     public RecipeIngredient getOutput() {
         return output;
+    }
+
+    public boolean matches(ItemStack inputStack) {
+
+        if (input == null) {
+            return false;
+        }
+
+        return input.matches(inputStack);
     }
 }
