@@ -1,42 +1,35 @@
 package com.SprintXXL.primitiverecipeapi.factory.data;
 
-import com.SprintXXL.primitiverecipeapi.ingredients.RecipeIngredient;
-import net.minecraft.item.ItemStack;
+import com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource;
+
+import java.util.Collections;
+import java.util.List;
 
 public class BasicFactoryData implements FactoryRecipeData {
 
     private final int duration;
-    private final RecipeIngredient input;
-    private final RecipeIngredient output;
+    private final List<RecipeResource> inputs;
+    private final List<RecipeResource> outputs;
 
     public BasicFactoryData(
             int duration,
-            RecipeIngredient input,
-            RecipeIngredient output
+            List<RecipeResource> inputs,
+            List<RecipeResource> outputs
     ) {
         this.duration = duration;
-        this.input = input;
-        this.output = output;
+        this.inputs = inputs;
+        this.outputs = outputs;
     }
 
     public int getDuration() {
         return duration;
     }
 
-    public RecipeIngredient getInput() {
-        return input;
+    public List<RecipeResource> getInputs() {
+        return Collections.unmodifiableList(inputs);
     }
 
-    public RecipeIngredient getOutput() {
-        return output;
-    }
-
-    public boolean matches(ItemStack inputStack) {
-
-        if (input == null) {
-            return false;
-        }
-
-        return input.matches(inputStack);
+    public List<RecipeResource> getOutputs() {
+        return Collections.unmodifiableList(outputs);
     }
 }

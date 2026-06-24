@@ -1,19 +1,21 @@
-package com.SprintXXL.primitiverecipeapi.resources;
+package com.SprintXXL.primitiverecipeapi.resources.definition;
+
+import net.minecraft.util.ResourceLocation;
 
 public class ResourceDefinition {
 
-    private final String id;
+    private final ResourceLocation id;
     private final ResourceType type;
 
     public ResourceDefinition(
-            String id,
+            ResourceLocation id,
             ResourceType type
     ) {
         this.id = id;
         this.type = type;
     }
 
-    public String getID() {
+    public ResourceLocation getID() {
         return id;
     }
 

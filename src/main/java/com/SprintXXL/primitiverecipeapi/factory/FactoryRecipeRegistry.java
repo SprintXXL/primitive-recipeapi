@@ -22,6 +22,10 @@ public final class FactoryRecipeRegistry {
 
     public static void register(FactoryRecipe recipe) {
 
+        if (recipe == null) {
+            throw new IllegalArgumentException("Recipe cannot be null");
+        }
+
         if (FACTORY_RECIPES.containsKey(recipe.getRecipeID())) {
             throw new IllegalArgumentException("Duplicate recipe ID: " + recipe.getRecipeID());
         }

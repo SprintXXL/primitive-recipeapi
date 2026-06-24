@@ -1,4 +1,4 @@
-package com.SprintXXL.primitiverecipeapi.ingredients;
+package com.SprintXXL.primitiverecipeapi.resources.recipe;
 
 public enum RemainingBehavior {
 

@@ -22,6 +22,10 @@ public final class CraftingRecipeRegistry {
 
     public static void register(CraftingRecipe recipe) {
 
+        if (recipe == null) {
+            throw new IllegalArgumentException("Recipe cannot be null");
+        }
+
         if (CRAFTING_RECIPES.containsKey(recipe.getID())) {
             throw new IllegalArgumentException("Duplicate recipe ID: " + recipe.getID());
         }

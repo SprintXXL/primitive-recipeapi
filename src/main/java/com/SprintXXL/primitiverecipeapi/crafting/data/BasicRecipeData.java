@@ -1,33 +1,26 @@
 package com.SprintXXL.primitiverecipeapi.crafting.data;
 
 import com.SprintXXL.primitiverecipeapi.crafting.shape.CraftingRecipeShape;
-import com.SprintXXL.primitiverecipeapi.resources.ResourceDefinition;
+import com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource;
 
 public class BasicRecipeData implements CraftingRecipeData {
 
     private final CraftingRecipeShape shape;
-    private final ResourceDefinition output;
-    private final int count;
+    private final RecipeResource output;
 
     public BasicRecipeData(
             CraftingRecipeShape shape,
-            ResourceDefinition output,
-            int count
+            RecipeResource output
     ) {
         this.shape = shape;
         this.output = output;
-        this.count = count;
     }
 
     public CraftingRecipeShape getShape() {
         return shape;
     }
 
-    public ResourceDefinition getOutput() {
+    public RecipeResource getOutput() {
         return output;
-    }
-
-    public int getCount() {
-        return count;
     }
 }
