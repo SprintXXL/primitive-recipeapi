@@ -1,7 +1,9 @@
 package com.SprintXXL.primitiverecipeapi.factory;
 
-import com.SprintXXL.primitiverecipeapi.factory.data.BasicFactoryData;
 import com.SprintXXL.primitiverecipeapi.factory.data.FactoryRecipeData;
+import com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource;
+
+import java.util.List;
 
 public class FactoryRecipe {
 
@@ -38,20 +40,16 @@ public class FactoryRecipe {
         return data;
     }
 
-    public BasicFactoryData getBasicFactoryData() {
-
-        if (!(data instanceof BasicFactoryData)) {
-            return null;
-        }
-
-        return (BasicFactoryData) data;
+    // API METHODS \\
+    public int getDurationTicks() {
+        return data.getDurationTicks();
     }
 
-    public int getDurationTicks() {
-        if (data instanceof BasicFactoryData) {
-            return ((BasicFactoryData) data).getDuration() * 20;
-        }
+    public List<RecipeResource> getInputs() {
+        return data.getInputs();
+    }
 
-        return 0;
+    public List<RecipeResource> getOutputs() {
+        return data.getOutputs();
     }
 }

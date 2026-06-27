@@ -2,6 +2,7 @@ package com.SprintXXL.primitiverecipeapi.factory.data;
 
 import com.SprintXXL.primitiverecipeapi.resources.recipe.RecipeResource;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,15 +22,26 @@ public class BasicFactoryData implements FactoryRecipeData {
         this.outputs = outputs;
     }
 
-    public int getDuration() {
-        return duration;
+    @Override
+    public int getDurationTicks() {
+        return duration * 20;
     }
 
+    @Override
     public List<RecipeResource> getInputs() {
         return Collections.unmodifiableList(inputs);
     }
 
+    @Override
     public List<RecipeResource> getOutputs() {
         return Collections.unmodifiableList(outputs);
+    }
+
+    public static List<RecipeResource> inputs(RecipeResource... inputs) {
+        return Arrays.asList(inputs);
+    }
+
+    public static List<RecipeResource> outputs(RecipeResource... outputs) {
+        return Arrays.asList(outputs);
     }
 }
